@@ -1,0 +1,898 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>12</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="misc\icons\wm1.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ButtonAPI\misc\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="icons\wm1.png" />
+      <EmbeddedResource Include="icons\wm1.png" />
+      <None Remove="icons\ghostcat.png" />
+      <EmbeddedResource Include="icons\ghostcat.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="AsmResolver">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AsmResolver.dll</HintPath>
+      </Reference>
+      <Reference Include="AsmResolver.DotNet">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AsmResolver.DotNet.dll</HintPath>
+      </Reference>
+      <Reference Include="AsmResolver.PE">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AsmResolver.PE.dll</HintPath>
+      </Reference>
+      <Reference Include="AsmResolver.PE.File">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AsmResolver.PE.File.dll</HintPath>
+      </Reference>
+      <Reference Include="Assembly-CSharp">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="Assembly-CSharp-firstpass">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Assembly-CSharp-firstpass.dll</HintPath>
+      </Reference>
+      <Reference Include="AssetRipper.Primitives">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AssetRipper.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="AssetsTools.NET">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\AssetsTools.NET.dll</HintPath>
+      </Reference>
+      <Reference Include="AVProVideo.Extensions.Timeline">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\AVProVideo.Extensions.Timeline.dll</HintPath>
+      </Reference>
+      <Reference Include="AVProVideo.Extensions.UnityUI">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\AVProVideo.Extensions.UnityUI.dll</HintPath>
+      </Reference>
+      <Reference Include="AVProVideo.Extensions.VisualEffectGraph">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\AVProVideo.Extensions.VisualEffectGraph.dll</HintPath>
+      </Reference>
+      <Reference Include="AVProVideo.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\AVProVideo.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="BeeByteObfuscator">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\BeeByteObfuscator.dll</HintPath>
+      </Reference>
+      <Reference Include="bHapticsLib">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\bHapticsLib.dll</HintPath>
+      </Reference>
+      <Reference Include="BlobHandles.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\BlobHandles.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Cinemachine">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Cinemachine.dll</HintPath>
+      </Reference>
+      <Reference Include="Collections.Pooled">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Collections.Pooled.dll</HintPath>
+      </Reference>
+      <Reference Include="DataModel">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\DataModel.dll</HintPath>
+      </Reference>
+      <Reference Include="Depthkit.Core">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Depthkit.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Depthkit.Studio">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Depthkit.Studio.dll</HintPath>
+      </Reference>
+      <Reference Include="Depthkit.Studio.Lite">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Depthkit.Studio.Lite.dll</HintPath>
+      </Reference>
+      <Reference Include="Discord.Sdk">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Discord.Sdk.dll</HintPath>
+      </Reference>
+      <Reference Include="DOTween">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\DOTween.dll</HintPath>
+      </Reference>
+      <Reference Include="DOTween.Modules">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\DOTween.Modules.dll</HintPath>
+      </Reference>
+      <Reference Include="Epic.OnlineServices">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Epic.OnlineServices.dll</HintPath>
+      </Reference>
+      <Reference Include="Facepunch.Steamworks.Win64">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Facepunch.Steamworks.Win64.dll</HintPath>
+      </Reference>
+      <Reference Include="Google.Protobuf">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Google.Protobuf.dll</HintPath>
+      </Reference>
+      <Reference Include="Iced">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Iced.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2Cpp">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppAssemblyGenerator">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Il2CppAssemblyGenerator.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppInterop.Common">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Il2CppInterop.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppInterop.Generator">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Il2CppInterop.Generator.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppInterop.HarmonySupport">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Il2CppInterop.HarmonySupport.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppInterop.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Il2CppInterop.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Bcl.TimeProvider">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Bcl.TimeProvider.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.DependencyInjection">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.DependencyInjection.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.Logging">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Logging.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.Logging.Abstractions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Logging.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.Options">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Options.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMicrosoft.Extensions.Primitives">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMicrosoft.Extensions.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppMono.Security">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppMono.Security.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2Cppmscorlib">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Collections.Immutable">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Collections.Immutable.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Configuration">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Core">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Data">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Diagnostics.DiagnosticSource">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Diagnostics.DiagnosticSource.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Drawing">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Drawing.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.IO.Compression">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.IO.Compression.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.IO.Compression.FileSystem">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.IO.Compression.FileSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.IO.Hashing">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.IO.Hashing.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Net.Http">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Net.Http.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Numerics">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Numerics.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Runtime.CompilerServices.Unsafe">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Runtime.Serialization">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Text.Encodings.Web">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Text.Encodings.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Text.Json">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Text.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Threading.Channels">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Threading.Channels.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Xml">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.dll</HintPath>
+      </Reference>
+      <Reference Include="Il2CppSystem.Xml.Linq">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Il2CppSystem.Xml.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="IndexRange">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\IndexRange.dll</HintPath>
+      </Reference>
+      <Reference Include="io.sentry.unity.runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\io.sentry.unity.runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="iOSInfo">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\iOSInfo.dll</HintPath>
+      </Reference>
+      <Reference Include="Klak.Spout.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Klak.Spout.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Localization.Database">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Localization.Database.dll</HintPath>
+      </Reference>
+      <Reference Include="Localization.LocalizableString">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Localization.LocalizableString.dll</HintPath>
+      </Reference>
+      <Reference Include="Localization.StringFormatting">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Localization.StringFormatting.dll</HintPath>
+      </Reference>
+      <Reference Include="MeaMod.DNS">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\MeaMod.DNS.dll</HintPath>
+      </Reference>
+      <Reference Include="Mediapipe.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Mediapipe.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="MelonLoader">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MelonLoader.dll</HintPath>
+      </Reference>
+      <Reference Include="MelonLoader.NativeHost">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MelonLoader.NativeHost.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Diagnostics.NETCore.Client">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Diagnostics.NETCore.Client.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Diagnostics.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Diagnostics.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.Binder">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Logging">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Logging.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Options">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Options.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Primitives">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Microsoft.Extensions.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="Mono.Cecil">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Mono.Cecil.dll</HintPath>
+      </Reference>
+      <Reference Include="Mono.Cecil.Mdb">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Mono.Cecil.Mdb.dll</HintPath>
+      </Reference>
+      <Reference Include="Mono.Cecil.Pdb">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Mono.Cecil.Pdb.dll</HintPath>
+      </Reference>
+      <Reference Include="Mono.Cecil.Rocks">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Mono.Cecil.Rocks.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MonoMod.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.Backports">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MonoMod.Backports.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.ILHelpers">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MonoMod.ILHelpers.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.RuntimeDetour">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MonoMod.RuntimeDetour.dll</HintPath>
+      </Reference>
+      <Reference Include="MonoMod.Utils">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\MonoMod.Utils.dll</HintPath>
+      </Reference>
+      <Reference Include="Newtonsoft.Json">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\BepInEx\plugins\catclientv3\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="NtpTimestamp">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\NtpTimestamp.dll</HintPath>
+      </Reference>
+      <Reference Include="Oculus.Platform">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Oculus.Platform.dll</HintPath>
+      </Reference>
+      <Reference Include="Oculus.VR">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Oculus.VR.dll</HintPath>
+      </Reference>
+      <Reference Include="OscCore.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\OscCore.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="PhotonClient">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\PhotonClient.dll</HintPath>
+      </Reference>
+      <Reference Include="Purchasing.Common">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Purchasing.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="RenderHeads.AVProMovieCapture.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\RenderHeads.AVProMovieCapture.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.Microsoft.Bcl.AsyncInterfaces">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Buffers">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Buffers.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Collections.Immutable">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Collections.Immutable.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Memory">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Memory.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Numerics.Vectors">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Numerics.Vectors.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Reflection.Metadata">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Reflection.Metadata.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Runtime.CompilerServices.Unsafe">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Text.Encodings.Web">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Text.Encodings.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Text.Json">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Text.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.System.Threading.Tasks.Extensions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.System.Threading.Tasks.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.Unity">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.Unity.dll</HintPath>
+      </Reference>
+      <Reference Include="Sentry.Unity.Native">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sentry.Unity.Native.dll</HintPath>
+      </Reference>
+      <Reference Include="Sigtrap.VrTunnellingPro">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Sigtrap.VrTunnellingPro.dll</HintPath>
+      </Reference>
+      <Reference Include="SteamAudioUnity">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\SteamAudioUnity.dll</HintPath>
+      </Reference>
+      <Reference Include="SteamVR">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\SteamVR.dll</HintPath>
+      </Reference>
+      <Reference Include="SteamVR_Actions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\SteamVR_Actions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Buffers">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Buffers.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Configuration.ConfigurationManager">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Configuration.ConfigurationManager.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Memory">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Memory.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Numerics.Vectors">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Numerics.Vectors.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.CompilerServices.Unsafe">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.ProtectedData">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Security.Cryptography.ProtectedData.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Permissions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Security.Permissions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.ValueTuple">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.ValueTuple.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Extensions">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\System.Windows.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Tomlet">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\Tomlet.dll</HintPath>
+      </Reference>
+      <Reference Include="UniTask">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UniTask.dll</HintPath>
+      </Reference>
+      <Reference Include="UniTask.Addressables">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UniTask.Addressables.dll</HintPath>
+      </Reference>
+      <Reference Include="UniTask.DOTween">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UniTask.DOTween.dll</HintPath>
+      </Reference>
+      <Reference Include="UniTask.Linq">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UniTask.Linq.dll</HintPath>
+      </Reference>
+      <Reference Include="UniTask.TextMeshPro">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UniTask.TextMeshPro.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.AI.Navigation">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.AI.Navigation.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Burst">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Burst.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Burst.Unsafe">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Burst.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Collections">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Collections.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.InputSystem">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.InputSystem.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Mathematics">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Mathematics.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.MemoryProfiler">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.MemoryProfiler.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Postprocessing.Runtime">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Configuration">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Device">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Device.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Environments.Internal">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Environments.Internal.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Internal">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Internal.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Registration">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Registration.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Scheduler">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Scheduler.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Telemetry">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Telemetry.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Services.Core.Threading">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Services.Core.Threading.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.TextMeshPro">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.Timeline">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.Timeline.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.XR.Management">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.XR.Management.dll</HintPath>
+      </Reference>
+      <Reference Include="Unity.XR.OpenVR">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Unity.XR.OpenVR.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AccessibilityModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AccessibilityModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AIModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AndroidJNIModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AndroidJNIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AnimationModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AnimationModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ARModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ARModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AssetBundleModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AssetBundleModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.AudioModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.AudioModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ClothModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ClothModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ContentLoadModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ContentLoadModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CrashReportingModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.CrashReportingModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.DirectorModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.DirectorModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.DSPGraphModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.DSPGraphModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.GameCenterModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.GameCenterModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.GIModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.GIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.GridModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.GridModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.HotReloadModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.HotReloadModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Il2CppAssetBundleManager">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Il2CppImageConversionManager">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\UnityEngine.Il2CppImageConversionManager.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ImageConversionModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ImageConversionModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.IMGUIModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.IMGUIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.InputLegacyModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.InputLegacyModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.InputModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.InputModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.JSONSerializeModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.JSONSerializeModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.LocalizationModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.LocalizationModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ParticleSystemModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.PerformanceReportingModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.PerformanceReportingModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Physics2DModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Physics2DModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.PhysicsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.PhysicsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ProfilerModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ProfilerModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.PropertiesModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.PropertiesModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.AppleCore">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.AppleCore.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.AppleMacosStub">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.AppleMacosStub.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.AppleStub">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.AppleStub.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.SecurityCore">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.SecurityCore.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.SecurityStub">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.SecurityStub.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.Stores">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.WinRTCore">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.WinRTCore.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.Purchasing.WinRTStub">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.Purchasing.WinRTStub.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ScreenCaptureModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.ScreenCaptureModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SharedInternalsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SharedInternalsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SpatialTracking">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SpriteMaskModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteMaskModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SpriteShapeModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SpriteShapeModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.StreamingModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.StreamingModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SubstanceModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SubstanceModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.SubsystemsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.SubsystemsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TerrainModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TerrainPhysicsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TextCoreFontEngineModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreFontEngineModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TextCoreTextEngineModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TextCoreTextEngineModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TextRenderingModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TextRenderingModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TilemapModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TilemapModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.TLSModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.TLSModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UI">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UIElementsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UIElementsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UIModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UmbraModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UmbraModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityAnalyticsCommonModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsCommonModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityAnalyticsModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityConnectModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityConnectModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityCurlModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityCurlModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityTestProtocolModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.VehiclesModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.VehiclesModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.VFXModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.VFXModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.VideoModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.VideoModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.VRModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.VRModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.WindModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.WindModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.XRModule">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\UnityEngine.XRModule.dll</HintPath>
+      </Reference>
+      <Reference Include="Utf8StringInterpolation">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Utf8StringInterpolation.dll</HintPath>
+      </Reference>
+      <Reference Include="Valve.Newtonsoft.Json">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\Valve.Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="vrc-oscquery-lib">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\vrc-oscquery-lib.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Audio">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Audio.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.CameraSystems">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.CameraSystems.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.CodeAnalysis">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.CodeAnalysis.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Core.Data">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Core.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Core.Networking">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Core.Networking.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Devices">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Devices.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Dynamics">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Dynamics.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.IMDraw">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.IMDraw.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.InventoryEffects">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.InventoryEffects.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Logging">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Logging.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK.Internal.EventPortals">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK.Internal.EventPortals.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK3.Accessories">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK3.Accessories.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK3.Depthkit">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK3.Depthkit.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK3.Dynamics.Constraint">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK3.Dynamics.Constraint.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK3.Dynamics.Contact">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK3.Dynamics.Contact.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDK3.Dynamics.PhysBone">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDK3.Dynamics.PhysBone.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDKBase.Editor.BuildPipeline">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDKBase.Editor.BuildPipeline.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDKBase.Validation.Attributes">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDKBase.Validation.Attributes.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.SDKInterface">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.SDKInterface.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.ClientBindings">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.ClientBindings.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.Common">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.Security">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.Security.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.Serialization.AOT">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.Serialization.AOT.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.Serialization.OdinSerializer">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.Serialization.OdinSerializer.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.VM">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.VM.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.VRCWrapperModules">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.VRCWrapperModules.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Udon.Wrapper">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Udon.Wrapper.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Core">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Elements">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Elements.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Shared">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Controls">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Controls.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Fragments">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Fragments.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Layout">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Layout.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Menus">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Menus.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Pages">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Pages.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Content.Utility">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Content.Utility.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Controls">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Controls.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Fragments">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Fragments.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.UI.Voyager.Pages">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.UI.Voyager.Pages.dll</HintPath>
+      </Reference>
+      <Reference Include="VRC.Utility">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRC.Utility.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCCore-Editor">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCCore-Editor.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCCore-Standalone">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCCore-Standalone.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCEconomy">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCEconomy.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCSDK2">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCSDK2.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCSDK3">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCSDK3.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCSDK3A">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCSDK3A.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCSDK3P">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCSDK3P.dll</HintPath>
+      </Reference>
+      <Reference Include="VRCSDKBase">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\VRCSDKBase.dll</HintPath>
+      </Reference>
+      <Reference Include="websocket-sharp">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\websocket-sharp.dll</HintPath>
+      </Reference>
+      <Reference Include="WebSocketDotNet">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\net6\WebSocketDotNet.dll</HintPath>
+      </Reference>
+      <Reference Include="WebTransMtn">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\WebTransMtn.dll</HintPath>
+      </Reference>
+      <Reference Include="ZLinq">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\ZLinq.dll</HintPath>
+      </Reference>
+      <Reference Include="ZLogger">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\ZLogger.dll</HintPath>
+      </Reference>
+      <Reference Include="__Generated">
+        <HintPath>..\..\..\..\..\mnt\myballs\SteamLibrary\steamapps\common\VRChat\MelonLoader\Il2CppAssemblies\__Generated.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
